@@ -16,7 +16,7 @@
 
 作者：废客泉 - [https://github.com/feikeq/fkpagetransitions](https://github.com/feikeq/fkpagetransitions)
 
-[http://htmlpreview.github.io/?https://github.com/feikeq/fkpagetransitions/blob/master/demo.htm](预览效果)
+[预览FKPageTransitions效果](http://htmlpreview.github.io/?https://github.com/feikeq/fkpagetransitions/blob/master/demo.htm)
 
 ###微博
 新浪微博 - http://feikeq.cn
