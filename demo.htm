@@ -51,6 +51,8 @@
 
   
   html, body { height: 100%; }
+  .myfkpage{text-align: center; font-size: 33px;}
+  button{background: #fff; border-radius: 5px;  padding: 5px 10px; border:1px solid #ddd;}
 
     </style>
 </head>
@@ -64,11 +66,32 @@
       <li style="background: #fd6a62">第五页</li>
       <li style="background: #f68dbb">第六页</li>
     </ul>
+
+    <div  style="position: absolute; bottom: 0; left: 0; text-align: center; width: 100%;">
+      <button onclick="fkpage.goToPrevSlide();">上一页</button>
+      <button onclick="alert(fkpage.getCurrentSlide());">当前页码</button>
+      <button onclick="alert(fkpage.getSlideCount());">总数</button>
+      <button onclick="fkpage.goToNextSlide();">下一页</button>
+      <br/>
+       <button onclick="fkpage.goToSlide(3);">跳至4页</button>
+      <button onclick="shownewts();">切换效果</button>
+      <br/>
+      <p style="font-size: 12px;">手机上用指左右滑动屏幕操作，电脑上鼠标上下滚轮操作</p>
+    </div>
+
 </body>
 
 <script type="text/javascript">
+var fkpage,cindex = 37;
+function shownewts(){
+  if (cindex<0) cindex =37;
+  var tmp = fkpage.setSlideMode(cindex); 
+  fkpage.goToNextSlide(); //下一页
+  cindex --;
+}
+
     $(document).ready(function(){
-      $('.myfkpage').FKPageTransitions();
+      fkpage = $('.myfkpage').FKPageTransitions();
     });
 </script>
 
