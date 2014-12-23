@@ -302,6 +302,15 @@ slider = $('.test').FKPageTransitions();
 var slideQty = slider.getSlideCount();
 ```
 
+
+**goToSlide**
+动态设置新的翻页效果（0-37）
+```
+例:
+slider = $('.test').FKPageTransitions();
+slider.setSlideMode(25);
+```
+
 **reloadSlider**
 重新装入滑块。
 ```
