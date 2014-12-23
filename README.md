@@ -61,7 +61,7 @@ $(document).ready(function(){
 
 ##配置选项
 
-###General
+###基本设置
 
 **mode**
 幻灯片之间的过渡效果
@@ -289,7 +289,7 @@ slider.goToPrevSlide();
 **getCurrentSlide**
 返回当前活动的幻灯片
 ```
-example:
+例:
 slider = $('.test').FKPageTransitions();
 var current = slider.getCurrentSlide();
 ```
@@ -297,7 +297,7 @@ var current = slider.getCurrentSlide();
 **getSlideCount**
 返回在滑块总幻灯片的数目
 ```
-example:
+例:
 slider = $('.test').FKPageTransitions();
 var slideQty = slider.getSlideCount();
 ```
@@ -305,7 +305,7 @@ var slideQty = slider.getSlideCount();
 **reloadSlider**
 重新装入滑块。
 ```
-example:
+例:
 slider = $('.test').FKPageTransitions();
 slider.reloadSlider();
 ```
