@@ -1,4 +1,4 @@
-#FKPageTransitions v1.0
+#FKPageTransitions v1.1
 ##响应式jQuery插件滑动翻页组件
 
 ###什么要使用这个滑块？
