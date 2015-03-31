@@ -1,4 +1,4 @@
-#FKPageTransitions v1.1
+#FKPageTransitions v1.2
 ##响应式jQuery插件滑动翻页组件
 
 ###什么要使用这个滑块？
@@ -151,7 +151,7 @@ options: boolean (true /false)
 ```
 
 **wrapperClass**
-滑块的类名。防止有样式与FKPageTransitions冲突。
+翻页框架类名。防止有样式与FKPageTransitions冲突。
 ```
 default: 'fk-page-wrapper'
 options: string
@@ -180,19 +180,26 @@ options: integer
 ```
 
 **preventDefaultSwipeX**
-如果<code>true</code>，触摸屏沿x轴为手指操作
+如果<code>true</code>，触摸屏沿x轴为手指操作(如果为false并preventDefaultSwipeY也为falase那么不响应touch事件)
 ```
 default: true
 options: boolean (true / false)
 ```
 
 **preventDefaultSwipeY**
-如果<code>true</code>，触摸屏沿y轴为手指操作
+如果<code>true</code>，触摸屏沿y轴为手指操作(如果为false并preventDefaultSwipeY也为falase那么不响应touch事件)
 ```
 default: false
 options: boolean (true / false)
 ```
  
+
+**pagerunstat**
+如果<code>true</code>，在翻页动画进行时禁止页面内元素动画渲染
+```
+default: false
+options: boolean (true / false)
+```
 
 
 
@@ -221,44 +228,48 @@ options: function(currentIndex){ // 写你的代码 }
 在每动画过渡开始前回调
 ```
 default: function(){}
-options: function(slideElement,oldIndex,newIndex){ // 写你的代码 }
+options: function(newIndex,oldIndex,newElement,oldElement){ // 写你的代码 }
 参数:
-  slideElement:目标元素的jQuery元素
-  oldIndex:当前页码
-  newIndex:要进入的页码
+  newIndex:当前页码
+  oldIndex:之前页码
+  newElement:当前的jQuery元素
+  oldElement:之前的jQuery元素
 ```
 
 **onSlideAfter**
 在每动画过渡结束后回调
 ```
 default: function(){}
-options: function(slideElement,oldIndex,newIndex){ // 写你的代码 }
+options: function(newIndex,oldIndex,newElement,oldElement){ // 写你的代码 }
 参数:
-  slideElement:目标元素的jQuery元素
-  oldIndex:之前页码
   newIndex:当前页码
+  oldIndex:之前页码
+  newElement:当前的jQuery元素
+  oldElement:之前的jQuery元素
 ```
 
 **onSlideNext**
 执行下一页时回调
 ```
 default: function(){}
-options: function(slideElement,oldIndex,newIndex){ // 写你的代码 }
+options: function(newIndex,oldIndex,newElement,oldElement){ // 写你的代码 }
 参数:
-  slideElement:目标元素的jQuery元素
-  oldIndex:之前页码
   newIndex:当前页码
+  oldIndex:之前页码
+  newElement:当前的jQuery元素
+  oldElement:之前的jQuery元素
 ```
 
 **onSlidePrev**
 执行上一页时回调
 ```
 default: function(){}
-options: function(slideElement,oldIndex,newIndex){ // 写你的代码 }
+options: function(newIndex,oldIndex,newElement,oldElement){ // 写你的代码 }
 参数:
-  slideElement:目标元素的jQuery元素
-  oldIndex:之前页码
   newIndex:当前页码
+  oldIndex:之前页码
+  newElement:当前的jQuery元素
+  oldElement:之前的jQuery元素
 ```
 
 ###公共方法调用
@@ -305,7 +316,7 @@ var slideQty = slider.getSlideCount();
 ```
 
 
-**goToSlide**
+**setSlideMode**
 动态设置新的翻页效果（0-37）
 ```
 例:
@@ -323,6 +334,15 @@ slider.reloadSlider();
  
 
 ## 更新日志
+### Version 1.2 (2015-03-31)
+* 在翻页动画执行前停止要操作页的所有CSS动画渲染(pagerunstat=true)，翻页动画结束后再继续播放CSS动画渲染,以免在手机上为节省性能导致翻页无效果
+* 回调方法添加上个元素对象prev_obj
+
+
+
+### Version 1.1
+* 设置X和Y为flash不响应touch事件
+
 
 ### Version 1.0
 * 支持鼠标
