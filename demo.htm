@@ -102,72 +102,76 @@ function shownewts(){
 
 
 
-    	
+      
 //使用FKPageTransitions插件
 var testing = $('#pt-main').FKPageTransitions({
-	// 常规设置
-	mode: 25, //0淡入 1在右 2上下 .... 详情参考说明
-	slideSelector: '', //指定子元素的对象[一般不指定]
-	infiniteLoop: true, //是否循环
-	speed: 5000, //速度[毫秒]
-	easing: null, //动画曲线
-	//startSlide: 2, //开始页ID
-	slideZIndex: 50, //初始z-index数
-	responsive: true, //绑定resize事件
-	wrapperClass: 'fk-page-wrapper', //主框架类名
+  // 常规设置
+  mode: 25, //0淡入 1在右 2上下 .... 详情参考说明
+  slideSelector: '', //指定子元素的对象[一般不指定]
+  infiniteLoop: true, //是否循环
+  speed: 5000, //速度[毫秒]
+  easing: null, //动画曲线
+  //startSlide: 2, //开始页ID
+  slideZIndex: 50, //初始z-index数
+  responsive: true, //绑定resize事件
+  wrapperClass: 'fk-page-wrapper', //主框架类名
 
-	//鼠标设置
-	mouseWheel:true, //是否支持滚轮
-	wheelThreshold:2, //灵敏度阀值
+  //鼠标设置
+  mouseWheel:true, //是否支持滚轮
+  wheelThreshold:2, //灵敏度阀值
 
-	// 触摸设置
-	swipeThreshold: 50, //灵敏度阀值
-	preventDefaultSwipeX: true, //左右拉
-	preventDefaultSwipeY: false, //上下拉
+  // 触摸设置
+  swipeThreshold: 50, //灵敏度阀值
+  preventDefaultSwipeX: true, //左右拉
+  preventDefaultSwipeY: false, //上下拉
 
-	// 回调设置
-	// 加载完成时回调
-	onSliderLoad: function(index){
-		alert('滑块完成加载。当前页码为：'+index+' ，单击“确定”按钮继续！');
-	},
-	// 在每动画过渡开始前回调
-	onSlideBefore: function(obj,prev,index){
-		console.log(obj);
-		alert('幻灯片动画效果过渡开始。要进入的页码为：'+index+' 当前页码为：'+prev+' 新页DOM对象输出在控制台！');
-	},
-	// 在每动画过渡结束后回调
-	onSlideAfter: function(obj,prev,index){
-		console.log(obj);
-		alert('幻灯片动画效果过渡完毕。当前页码为：'+index+' 之前页码为：'+prev+' 当前页DOM对象输出在控制台！');
-	},
-	// 下一页时回调
-	onSlideNext: function(obj,prev,index){
-		console.log(obj);
-		alert('你的操作是[下一页]。当前页码为：'+index+' 之前页码为：'+prev+' 当前页DOM对象输出在控制台！');
-	},
-	// 上一页时回调
-	onSlidePrev: function(obj,prev,index){
-		console.log(obj);
-		alert('你的操作是[上一页]。当前页码为：'+index+' 之前页码为：'+prev+' 当前页DOM对象输出在控制台！');
-	},
-	// 窗口发生变化时回调[responsive=true]
-	onSliderResize: function(index) {
-		//slider.settings.onSliderResize.call(el, slider.active.index);
-		console.log('页面大小有变化。当前页码为：'+index);
-	}
+  pagerunstat:false, //是否在翻页动画进行时禁止页面内元素动画渲染
+
+  // 回调设置
+  // 加载完成时回调
+  onSliderLoad: function(currentIndex){
+    alert('滑块完成加载。当前页码为：'+currentIndex+' ，单击“确定”按钮继续！');
+  },
+  // 在每动画过渡开始前回调
+  onSlideBefore: function(newIndex,oldIndex,newElement,oldElement){
+    console.log(index_obj);
+    alert('幻灯片动画效果过渡开始。要进入的页码为：'+newIndex+' 当前页码为：'+oldIndex+' 新页DOM对象输出在控制台！');
+  },
+  // 在每动画过渡结束后回调
+  onSlideAfter: function(newIndex,oldIndex,newElement,oldElement){
+    console.log(prev_obj);
+    alert('幻灯片动画效果过渡完毕。当前页码为：'+newIndex+' 之前页码为：'+oldIndex+' 当前页DOM对象输出在控制台！');
+  },
+  // 下一页时回调
+  onSlideNext: function(newIndex,oldIndex,newElement,oldElement){
+    console.log(prev_obj);
+    alert('你的操作是[下一页]。当前页码为：'+newIndex+' 之前页码为：'+oldIndex+' 当前页DOM对象输出在控制台！');
+  },
+  // 上一页时回调
+  onSlidePrev: function(newIndex,oldIndex,newElement,oldElement){
+    console.log(index_obj);
+    alert('你的操作是[上一页]。当前页码为：'+newIndex+' 之前页码为：'+oldIndex+' 当前页DOM对象输出在控制台！');
+  },
+  // 窗口发生变化时回调[responsive=true]
+  onSliderResize: function(currentIndex) {
+    //slider.settings.onSliderResize.call(el, slider.active.index);
+    console.log('页面大小有变化。当前页码为：'+currentIndex);
+  }
 });
 
 var cindex = 37;
 //myttttt动态设置新的翻页效果（0-37）
 function myttttt(){
-	if (cindex<0) cindex =37;
-	var tmp = testing.setSlideMode(cindex); 
-	console.log('设置翻页效果ID为：'+tmp);
-	testing.goToNextSlide(); //下一页
-	cindex --;
+  if (cindex<0) cindex =37;
+  var tmp = testing.setSlideMode(cindex);
+  console.log('设置翻页效果ID为：'+tmp);
+  testing.goToNextSlide(); //下一页
+  cindex --;
 }
 console.log('查看FKPageTransitions对象：')
 console.log(testing);
+
+
 
 </script -->
 
