@@ -1,4 +1,4 @@
-#FKPageTransitions v1.2
+#FKPageTransitions v1.3
 ##响应式jQuery插件滑动翻页组件
 
 ###什么要使用这个滑块？
@@ -334,10 +334,14 @@ slider.reloadSlider();
  
 
 ## 更新日志
+
+### Version 1.3 (2015-04-02)
+* 修复场景入场先显示再动画的BUG
+
+
 ### Version 1.2 (2015-03-31)
 * 在翻页动画执行前停止要操作页的所有CSS动画渲染(pagerunstat=true)，翻页动画结束后再继续播放CSS动画渲染,以免在手机上为节省性能导致翻页无效果
 * 回调方法添加上个元素对象prev_obj
-
 
 
 ### Version 1.1
@@ -347,6 +351,7 @@ slider.reloadSlider();
 ### Version 1.0
 * 支持鼠标
 * 支持响应式
+
 
 
 废客联邦
