@@ -337,6 +337,7 @@ slider.reloadSlider();
 
 ### Version 1.3 (2015-04-02)
 * 修复场景入场先显示再动画的BUG
+* 修复CSS渲染逻辑引起的事件监听异常
 
 
 ### Version 1.2 (2015-03-31)
