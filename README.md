@@ -1,4 +1,4 @@
-#FKPageTransitions v1.3
+#FKPageTransitions v1.4
 ##响应式jQuery插件滑动翻页组件
 
 ###什么要使用这个滑块？
@@ -334,6 +334,9 @@ slider.reloadSlider();
  
 
 ## 更新日志
+### Version 1.4 (2015-04-08)
+* 修复一个小的BUG
+
 
 ### Version 1.3 (2015-04-02)
 * 修复场景入场先显示再动画的BUG
